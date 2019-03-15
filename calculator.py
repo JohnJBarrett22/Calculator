@@ -21,5 +21,15 @@ filemenu.add_command(label = "Scientific")
 filemenu.add_separator()
 filemenu.add_command(label = "Exit")
 
+editmenu = Menu(menubar, tearoff = 0)
+menubar.add_cascade(label = "Edit", menu = editmenu)
+editmenu.add_command(label = "Cut")
+editmenu.add_command(label = "Copy")
+editmenu.add_command(label = "Edit")
+
+helpmenu = Menu(menubar, tearoff = 0)
+menubar.add_cascade(label = "Help", menu = helpmenu)
+helpmenu.add_command(label = "View")
+
 root.config(menu = menubar)
 root.mainloop()
