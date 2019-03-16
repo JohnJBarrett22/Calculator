@@ -12,6 +12,31 @@ root.geometry("480x568+0+0")
 calc = Frame(root)
 calc.grid()
 
+class Calc():
+    def __init__(self):
+        self.total = 0
+        self.current = ""
+        self.input_value = True
+        self.check_sum = False
+        self.op = ""
+        self.result = False
+    
+    def numberEnter(self, num):
+        self.result = False
+        firstnum = txtDisplay.get()
+        secondnum = str(num)
+        if self.input_value:
+            self.current = secondnum
+            self.input_value = False
+        else:
+            if secondnum ==".":
+                if secondnum in firstnum:
+                    return
+            self.current = firstnum + secondnum
+        self.display(self.current)
+
+added_value = Calc()
+
 txtDisplay = Entry(calc, font = ('arial', 20, "bold"), bg = "powder blue", bd = 30, width=28, justify=RIGHT)
 txtDisplay.grid(row=0, column=0, columnspan=4, pady=1)
 txtDisplay.insert(0, "0")
@@ -23,7 +48,7 @@ for j in range(2,5):
     for k in range(3):
         btn.append(Button(calc, width = 6, height = 2, font=("arial", 20, "bold"), bd=4, text = numberpad[i]))
         btn[i].grid(row=j, column=k, pady=1)
-        
+        btn[i]["command"] = lambda x = numberpad [i]: added_value
         i+= 1
 
 #Standard Calculator
@@ -79,6 +104,8 @@ btnCos2 = Button(calc, text="log1p", width = 6, height = 2, font=("arial", 20, "
 btnexpm1 = Button(calc, text="expml", width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue").grid(row=5, column=6, pady=1)
 btnLgamma = Button(calc, text="lgamma", width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue").grid(row=5, column=7, pady=1)
 
+lblDisplay = Label(calc, text="Scientific Calculator", font=("arial", 30, "bold"), justify = CENTER)
+lblDisplay.grid(row =0, column = 4, columnspan = 4)
 
 def Exit():
     Exit = tkinter.messagebox.askyesno("Scientific Calculator", "Confirm if you want to exit...")
