@@ -19,12 +19,38 @@ txtDisplay.insert(0, "0")
 numberpad = "789456123"
 i = 0
 btn = []
-for j in range(1,4):
+for j in range(2,5):
     for k in range(3):
         btn.append(Button(calc, width = 6, height = 2, font=("arial", 20, "bold"), bd=4, text = numberpad[i]))
         btn[i].grid(row=j, column=k, pady=1)
         
         i+= 1
+
+#Standard Calculator
+#Row 0
+btnClear = Button(calc, text=chr(67), width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue").grid(row=1, column=0, pady=1)
+btnClearAll = Button(calc, text=chr(67) + chr(69), width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue").grid(row=1, column=1, pady=1)
+btnSq = Button(calc, text="√", width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue").grid(row=1, column=2, pady=1)
+btnAdd = Button(calc, text="+", width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue").grid(row=1, column=3, pady=1)
+
+#Row 1
+btnSub = Button(calc, text="-", width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue").grid(row=2, column=3, pady=1)
+
+#Row 2
+btnMul = Button(calc, text="*", width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue").grid(row=3, column=3, pady=1)
+
+#Row 3
+btnDiv = Button(calc, text=chr(247), width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue").grid(row=4, column=3, pady=1)
+
+#Row 4
+btnZero = Button(calc, text="0", width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue").grid(row=5, column=0, pady=1)
+btnPer = Button(calc, text=".", width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue").grid(row=5, column=1, pady=1)
+btnPM = Button(calc, text=chr(177), width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue").grid(row=5, column=2, pady=1)
+btnEqu = Button(calc, text="=", width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue").grid(row=5, column=3, pady=1)
+
+
+#Scientific Calculator
+
 
 def Exit():
     Exit = tkinter.messagebox.askyesno("Scientific Calculator", "Confirm if you want to exit...")
