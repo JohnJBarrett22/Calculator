@@ -35,6 +35,10 @@ class Calc():
             self.current = firstnum + secondnum
         self.display(self.current)
 
+    def display(self, value):
+        txtDisplay.delete(0, END)
+        txtDisplay.insert(0, value)
+
 added_value = Calc()
 
 txtDisplay = Entry(calc, font = ('arial', 20, "bold"), bg = "powder blue", bd = 30, width=28, justify=RIGHT)
@@ -48,7 +52,7 @@ for j in range(2,5):
     for k in range(3):
         btn.append(Button(calc, width = 6, height = 2, font=("arial", 20, "bold"), bd=4, text = numberpad[i]))
         btn[i].grid(row=j, column=k, pady=1)
-        btn[i]["command"] = lambda x = numberpad [i]: added_value
+        btn[i]["command"] = lambda x = numberpad [i]: added_value.numberEnter(x)
         i+= 1
 
 #Standard Calculator
@@ -68,7 +72,7 @@ btnMul = Button(calc, text="*", width = 6, height = 2, font=("arial", 20, "bold"
 btnDiv = Button(calc, text=chr(247), width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue").grid(row=4, column=3, pady=1)
 
 #Row 4
-btnZero = Button(calc, text="0", width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue").grid(row=5, column=0, pady=1)
+btnZero = Button(calc, text="0", width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue", command = lambda: added_value.numberEnter(0)).grid(row=5, column=0, pady=1)
 btnPer = Button(calc, text=".", width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue").grid(row=5, column=1, pady=1)
 btnPM = Button(calc, text=chr(177), width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue").grid(row=5, column=2, pady=1)
 btnEqu = Button(calc, text="=", width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue").grid(row=5, column=3, pady=1)
