@@ -108,6 +108,31 @@ class Calc():
         self.current = math.tan(math.radians(float(txtDisplay.get())))
         self.display(self.current)
 
+    def tanh(self):
+        self.result = False
+        self.current = math.tanh(math.radians(float(txtDisplay.get())))
+        self.display(self.current)
+
+    def sin(self):
+        self.result = False
+        self.current = math.sin(math.radians(flat(txtDisplay.get())))
+        self.display(self.current)
+
+    def sinh(self):
+        self.result = False
+        self.current = math.sinh(math.radians(float(txtDisplay.get())))
+        self.display(self.current)
+
+    def log(self):
+        self.result = False
+        self.current = math.log(float(txtDisplay.get()))
+        self.display(self.current)
+
+    def exp(self):
+        self.result = False
+        self.current = math.exp(float(txtDisplay.get()))
+        self.display(self.current)
+
     def pi(self):
         self.result = False
         self.current = math.pi
@@ -122,6 +147,32 @@ class Calc():
         self.result = False
         self.current = math.e
         self.display(self.current)
+
+    def acosh(self):
+        self.result = False
+        self.current = math.acosh(float(txtDisplay.get()))
+        self.display(self.current)
+
+    def asinh(self):
+        self.result = FALSE
+        self.current = math.asinh(float(txtDisplay.get()))
+        self.display(self.current)
+
+    def expm1(self):
+        self.result = False
+        self.current = math.expm1(float(txtDisplay.get()))
+        self.display(self.current)
+
+    def lgamma(self):
+        self.result = False
+        self.current = math.lgamma(float(txtDisplay.get()))
+        self.display(self.current)
+
+    def degrees(self):
+        self.result = False
+        self.current = math.degrees(float(txtDisplay.get()))
+        self.display(self.current)
+
 
 added_value = Calc()
 
@@ -158,7 +209,7 @@ btnDiv = Button(calc, text=chr(247), width = 6, height = 2, font=("arial", 20, "
 #Row 4
 btnZero = Button(calc, text="0", width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue", command = lambda: added_value.numberEnter(0)).grid(row=5, column=0, pady=1)
 btnPer = Button(calc, text=".", width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue", command = lambda: added_value.numberEnter(".")).grid(row=5, column=1, pady=1)
-btnPM = Button(calc, text=chr(177), width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue").grid(row=5, column=2, pady=1)
+btnPM = Button(calc, text=chr(177), width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue", command = added_value.mathsPM).grid(row=5, column=2, pady=1)
 btnEqu = Button(calc, text="=", width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue", command = added_value.sum_of_total).grid(row=5, column=3, pady=1)
 
 #Scientific Calculator
