@@ -173,6 +173,23 @@ class Calc():
         self.current = math.degrees(float(txtDisplay.get()))
         self.display(self.current)
 
+    def log2(self):
+        seld.result = False
+        self.current = math.log2(float(txtDisplay.get()))
+        self.display(self.current)
+
+    def log10(self):
+        self.result = False
+        self.current = math.log10(float(txtDisplay.get()))
+        self.display(self.current)
+
+    def log1p(self):
+        self.result = False
+        self.current = math.log1p(float(txtDisplay.get()))
+        self.display(self.current)
+
+    
+
 
 added_value = Calc()
 
