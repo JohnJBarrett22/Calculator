@@ -47,6 +47,32 @@ class Calc():
         txtDisplay.delete(0, END)
         txtDisplay.insert(0, value)
 
+    def valid_function(self):
+        if self.op == "add":
+            self.total += self.current
+        if self.op == "sub":
+            self.total -= self.current
+        if self.op == "multi":
+            self.total *= self.current
+        if self.op == "divide":
+            self.total /= self.current
+        if self.op == "mod":
+            self.total %= self.current
+        self.input_value = True
+        self.check_sum = False
+        self.display(self.total)
+
+    def operation(self, op):
+        self.current = float(self.current)
+        if self.check_sum:
+            self.valid_function()
+        elif not self.result:
+            self.total = self.current
+            self.input_value = True
+        self.check_sum = True
+        self.op = op
+        self.result = False
+
 added_value = Calc()
 
 txtDisplay = Entry(calc, font = ('arial', 20, "bold"), bg = "powder blue", bd = 30, width=28, justify=RIGHT)
@@ -68,20 +94,20 @@ for j in range(2,5):
 btnClear = Button(calc, text=chr(67), width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue").grid(row=1, column=0, pady=1)
 btnClearAll = Button(calc, text=chr(67) + chr(69), width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue").grid(row=1, column=1, pady=1)
 btnSq = Button(calc, text="√", width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue").grid(row=1, column=2, pady=1)
-btnAdd = Button(calc, text="+", width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue").grid(row=1, column=3, pady=1)
+btnAdd = Button(calc, text="+", width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue", command = lambda: added_value.operation("add")).grid(row=1, column=3, pady=1)
 
 #Row 1
-btnSub = Button(calc, text="-", width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue").grid(row=2, column=3, pady=1)
+btnSub = Button(calc, text="-", width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue", command = lambda: added_value.operation("sub")).grid(row=2, column=3, pady=1)
 
 #Row 2
-btnMul = Button(calc, text="*", width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue").grid(row=3, column=3, pady=1)
+btnMul = Button(calc, text="*", width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue", command = lambda: added_value.operation("multi")).grid(row=3, column=3, pady=1)
 
 #Row 3
-btnDiv = Button(calc, text=chr(247), width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue").grid(row=4, column=3, pady=1)
+btnDiv = Button(calc, text=chr(247), width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue", command = lambda: added_value.operation("divide")).grid(row=4, column=3, pady=1)
 
 #Row 4
 btnZero = Button(calc, text="0", width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue", command = lambda: added_value.numberEnter(0)).grid(row=5, column=0, pady=1)
-btnPer = Button(calc, text=".", width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue").grid(row=5, column=1, pady=1)
+btnPer = Button(calc, text=".", width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue", command = lambda: added_value.numberEnter(".")).grid(row=5, column=1, pady=1)
 btnPM = Button(calc, text=chr(177), width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue").grid(row=5, column=2, pady=1)
 btnEqu = Button(calc, text="=", width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue").grid(row=5, column=3, pady=1)
 
