@@ -35,6 +35,14 @@ class Calc():
             self.current = firstnum + secondnum
         self.display(self.current)
 
+    def sum_of_total(self):
+        self.result = True
+        self.current = float(self.current)
+        if self.check_sum == True:
+            self.valid_function()
+        else:
+            self.total = float(txtDisplay.get())    
+    
     def display(self, value):
         txtDisplay.delete(0, END)
         txtDisplay.insert(0, value)
