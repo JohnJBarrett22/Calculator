@@ -188,9 +188,6 @@ class Calc():
         self.current = math.log1p(float(txtDisplay.get()))
         self.display(self.current)
 
-    
-
-
 added_value = Calc()
 
 txtDisplay = Entry(calc, font = ('arial', 20, "bold"), bg = "powder blue", bd = 30, width=28, justify=RIGHT)
@@ -232,9 +229,9 @@ btnEqu = Button(calc, text="=", width = 6, height = 2, font=("arial", 20, "bold"
 #Scientific Calculator
 #Row 0
 btnPi = Button(calc, text="π", width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue", command = added_value.pi).grid(row=1, column=4, pady=1)
-btnCos = Button(calc, text="cos", width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue").grid(row=1, column=5, pady=1)
-btnTan = Button(calc, text="tan", width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue").grid(row=1, column=6, pady=1)
-btnSin = Button(calc, text="sin", width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue").grid(row=1, column=7, pady=1)
+btnCos = Button(calc, text="cos", width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue", command = added_value.cos).grid(row=1, column=5, pady=1)
+btnTan = Button(calc, text="tan", width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue", command = added_value.tan).grid(row=1, column=6, pady=1)
+btnSin = Button(calc, text="sin", width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue", command = added_value.sin).grid(row=1, column=7, pady=1)
 
 #Row 1
 btn2Pi = Button(calc, text="2π", width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue", command = added_value.tau).grid(row=2, column=4, pady=1)
@@ -249,16 +246,16 @@ btnMod = Button(calc, text="Mod", width = 6, height = 2, font=("arial", 20, "bol
 btnE = Button(calc, text="e", width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue", command = added_value.e).grid(row=3, column=7, pady=1)
 
 #Row 3
-btnLog2 = Button(calc, text="log2", width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue").grid(row=4, column=4, pady=1)
-btnDeg = Button(calc, text="deg", width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue").grid(row=4, column=5, pady=1)
-btnAcosh = Button(calc, text="acosh", width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue").grid(row=4, column=6, pady=1)
-btnAsinh = Button(calc, text="asinh", width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue").grid(row=4, column=7, pady=1)
+btnLog2 = Button(calc, text="log2", width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue", command = added_value.log2).grid(row=4, column=4, pady=1)
+btnDeg = Button(calc, text="deg", width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue", command = added_value.degrees).grid(row=4, column=5, pady=1)
+btnAcosh = Button(calc, text="acosh", width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue", command = added_value.acosh).grid(row=4, column=6, pady=1)
+btnAsinh = Button(calc, text="asinh", width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue", command = added_value.asinh).grid(row=4, column=7, pady=1)
 
 #Row 4
-btnLog10 = Button(calc, text="log10", width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue").grid(row=5, column=4, pady=1)
-btnCos2 = Button(calc, text="log1p", width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue").grid(row=5, column=5, pady=1)
-btnexpm1 = Button(calc, text="expml", width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue").grid(row=5, column=6, pady=1)
-btnLgamma = Button(calc, text="lgamma", width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue").grid(row=5, column=7, pady=1)
+btnLog10 = Button(calc, text="log10", width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue", command = added_value.log10).grid(row=5, column=4, pady=1)
+btnCos2 = Button(calc, text="log1p", width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue", command = added_value.cosh).grid(row=5, column=5, pady=1)
+btnexpm1 = Button(calc, text="expml", width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue", command = added_value.expm1).grid(row=5, column=6, pady=1)
+btnLgamma = Button(calc, text="lgamma", width = 6, height = 2, font=("arial", 20, "bold"), bd=4, bg="powder blue", command = added_value.lgamma).grid(row=5, column=7, pady=1)
 
 lblDisplay = Label(calc, text="Scientific Calculator", font=("arial", 30, "bold"), justify = CENTER)
 lblDisplay.grid(row =0, column = 4, columnspan = 4)
